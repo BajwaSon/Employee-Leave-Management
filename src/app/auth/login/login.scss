@@ -1,0 +1,29 @@
+/* Floating label effect */
+.input-field:focus + label,
+.input-field:not(:placeholder-shown) + label {
+  transform: translateY(-1rem);
+  font-size: 0.75rem;
+  color: #6366f1;
+}
+
+label {
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* Form fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease forwards;
+}

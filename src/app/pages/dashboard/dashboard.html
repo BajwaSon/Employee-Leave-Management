@@ -1,0 +1,157 @@
+<div class="flex flex-col h-full overflow-y-auto">
+    <h1 class="text-3xl font-semibold text-indigo-400 mb-6">Dashboard</h1>
+    <!-- TOP CARDS -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <!-- Total Employees -->
+        <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
+            <p class="text-sm text-gray-400 font-medium mb-2">TOTAL EMPLOYEES</p>
+            <h2 class="text-3xl font-bold">156</h2>
+        </div>
+
+        <!-- Active Leaves -->
+        <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-green-500">
+            <p class="text-sm text-gray-400 font-medium mb-2">ACTIVE LEAVES</p>
+            <h2 class="text-3xl font-bold">23</h2>
+        </div>
+
+        <!-- Pending Approvals -->
+        <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-purple-500">
+            <p class="text-sm text-gray-400 font-medium mb-2">PENDING APPROVALS</p>
+            <h2 class="text-3xl font-bold">8</h2>
+        </div>
+
+        <!-- This Month -->
+        <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-red-500">
+            <p class="text-sm text-gray-400 font-medium mb-2">THIS MONTH</p>
+            <h2 class="text-3xl font-bold">45</h2>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT GRID -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- RECENT LEAVE APPLICATIONS (TABLE) -->
+        <div class="lg:col-span-2 bg-gray-800 p-6 rounded-xl shadow-xl">
+            <div class="pb-5">
+                <h3 class="text-xl font-semibold mb-2">Recent Leave Applications</h3>
+                <p class="text-gray-400 text-sm">
+                    A list of all the recent leave applications including employee, leave type, duration, status and
+                    actions.
+                </p>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-700 bg-gray-800 rounded-xl overflow-hidden">
+                    <thead class="bg-gray-800 text-gray-300">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium uppercase">EMPLOYEE</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium uppercase">LEAVE TYPE</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium uppercase">DURATION</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium uppercase">STATUS</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium uppercase">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-700">
+                        <tr class="hover:bg-gray-700/40">
+                            <td class="px-6 py-4">John Doe</td>
+                            <td class="px-6 py-4">Sick Leave</td>
+                            <td class="px-6 py-4">2 days</td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="inline-flex items-center rounded-md bg-yellow-400/10 px-2 py-1 text-xs font-medium text-yellow-500 inset-ring inset-ring-yellow-400/20">Pending</span>
+                            </td>
+                            <td class="space-x-2 px-6 py-4">
+                                <button
+                                    class="inline-flex items-center rounded-md bg-green-400/10 px-2 py-1 text-xs font-medium text-green-400 inset-ring inset-ring-green-500/20 cursor-pointer">Approved</button>
+                                <button
+                                    class="inline-flex items-center rounded-md bg-red-400/10 px-2 py-1 text-xs font-medium text-red-400 inset-ring inset-ring-red-400/20 cursor-pointer">Reject</button>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-gray-700/40">
+                            <td class="px-6 py-4">Jane Smith</td>
+                            <td class="px-6 py-4">Annual Leave</td>
+                            <td class="px-6 py-4">5 days</td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="inline-flex items-center rounded-md bg-green-400/10 px-2 py-1 text-xs font-medium text-green-400 inset-ring inset-ring-green-500/20">Approved</span>
+                            </td>
+                            <td class="space-x-2 px-6 py-4">
+                                <button
+                                    class="inline-flex items-center rounded-md bg-blue-400/10 px-2 py-1 text-xs font-medium text-blue-400 inset-ring inset-ring-blue-400/30 cursor-pointer">View</button>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-gray-700/40">
+                            <td class="px-6 py-4">Mike Johnson</td>
+                            <td class="px-6 py-4">Personal Leave</td>
+                            <td class="px-6 py-4">1 day</td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="inline-flex items-center rounded-md bg-yellow-400/10 px-2 py-1 text-xs font-medium text-yellow-500 inset-ring inset-ring-yellow-400/20">Pending</span>
+                            </td>
+                            <td class="space-x-2 px-6 py-4">
+                                <button
+                                    class="inline-flex items-center rounded-md bg-green-400/10 px-2 py-1 text-xs font-medium text-green-400 inset-ring inset-ring-green-500/20 cursor-pointer">Approved</button>
+                                <button
+                                    class="inline-flex items-center rounded-md bg-red-400/10 px-2 py-1 text-xs font-medium text-red-400 inset-ring inset-ring-red-400/20 cursor-pointer">Reject</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- QUICK ACTIONS -->
+        <div class="bg-gray-800 p-6 rounded-xl shadow-xl">
+            <h3 class="text-xl font-semibold text-indigo-400 border-b border-gray-700 pb-4 mb-6">Quick Actions</h3>
+            <div class="space-y-4">
+                <button
+                    class="w-full flex items-center justify-center gap-3 bg-indigo-600 hover:bg-indigo-800 px-5 py-3 rounded-lg font-medium shadow-lg cursor-pointer">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path d="M3 13h8v8h2v-8h8v-2h-8V3h-2v8H3z"></path>
+                        </svg>
+                    </span> Add New Employee
+                </button>
+                <button
+                    class="w-full flex items-center justify-center gap-3 bg-green-700 hover:bg-green-800 px-5 py-3 rounded-lg font-medium shadow-lg cursor-pointer">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="m19,4h-2v-2h-2v2h-6v-2h-2v2h-2c-1.1,0-2,.9-2,2v14c0,1.1.9,2,2,2h14c1.1,0,2-.9,2-2V6c0-1.1-.9-2-2-2ZM5,20v-12h14v-2,14s-14,0-14,0Z">
+                            </path>
+                            <path
+                                d="m12.22,11.14l-.22.22-.22-.22c-.86-.86-2.23-.86-3.1,0-.86.86-.86,2.21,0,3.07l3.32,3.29,3.32-3.29c.86-.86.86-2.21,0-3.07-.87-.86-2.23-.86-3.1,0Z">
+                            </path>
+                        </svg>
+                    </span> New Leave Request
+                </button>
+                <button
+                    class="w-full flex items-center justify-center gap-3 bg-purple-500 hover:bg-purple-700 px-5 py-3 rounded-lg font-medium shadow-lg cursor-pointer">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="m19.94 7.68-.03-.09a.8.8 0 0 0-.2-.29l-5-5c-.09-.09-.19-.15-.29-.2l-.09-.03a.8.8 0 0 0-.26-.05c-.02 0-.04-.01-.06-.01H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-12s-.01-.04-.01-.06c0-.09-.02-.17-.05-.26ZM6 20V4h7v4c0 .55.45 1 1 1h4v11z">
+                            </path>
+                            <path d="M8 11h8v2H8zM8 15h8v2H8zM8 7h3v2H8z"></path>
+                        </svg>
+                    </span> Export Reports
+                </button>
+                <button
+                    class="w-full flex items-center justify-center gap-3 bg-red-600 hover:bg-orange-800 px-5 py-3 rounded-lg font-medium shadow-lg cursor-pointer">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 3C7.66 3 4 4.83 4 7v10c0 2.17 3.66 4 8 4s8-1.83 8-4V7c0-2.17-3.66-4-8-4m0 2c3.68 0 5.91 1.49 6 2-.09.51-2.32 2-6 2S6.07 7.49 6 7.01C6.07 6.51 8.31 5 12 5M6 9.61c1.48.85 3.64 1.39 6 1.39s4.52-.55 6-1.39V12c-.07.5-2.31 2-6 2s-5.93-1.51-6-2zM12 19c-3.69 0-5.93-1.51-6-2v-2.39c1.48.85 3.64 1.39 6 1.39s4.52-.55 6-1.39V17c-.07.5-2.31 2-6 2">
+                            </path>
+                        </svg>
+                    </span> System Settings
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

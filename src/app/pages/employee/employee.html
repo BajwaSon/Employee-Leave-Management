@@ -1,0 +1,212 @@
+<div class="flex flex-col h-full overflow-hidden">
+    <h1 class="text-3xl font-semibold text-indigo-400 mb-6">Employee Management</h1>
+    <!-- ALL EMPLOYESS LIST (TABLE) -->
+    <div class="bg-gray-800 p-6 h-full rounded-xl shadow-xl flex-1 overflow-hidden flex flex-col">
+        <div class="flex items-center justify-between pb-5">
+            <div>
+                <h3 class="text-xl font-semibold mb-2">Emoployes List</h3>
+                <p class="text-gray-400 text-sm">
+                    A list of all the employees including name, email, phone, title and role etc.
+                </p>
+            </div>
+            <button command="show-modal" commandfor="dialog"
+                class="flex flex-row items-center text-white gap-2 bg-indigo-600 hover:bg-indigo-800 px-4 py-2 rounded-lg text-sm font-medium shadow-lg cursor-pointer transition duration-300">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M3 13h8v8h2v-8h8v-2h-8V3h-2v8H3z"></path>
+                    </svg>
+                </span>
+                Add New Employee
+            </button>
+        </div>
+        <div class="flex-1 h-full overflow-auto">
+            <table class="min-w-full divide-y divide-gray-700 bg-gray-800 rounded-xl overflow-hidden">
+                <thead class="bg-gray-800 text-gray-300">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">ID</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">NAME</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">EMAIL</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">CONTACT</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">DEPARTMENT</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">ROLE</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-700">
+                    <tr class="hover:bg-gray-700/40" *ngFor="let item of employeeList; let i = index">
+                        <td class="px-6 py-4">{{i+1}}</td>
+                        <td class="px-6 py-4">{{item.employeeName}}</td>
+                        <td class="px-6 py-4">{{item.emailId}}</td>
+                        <td class="px-6 py-4">{{item.contactNo}}</td>
+                        <td class="px-6 py-4">{{item.deptName}}</td>
+                        <td class="px-6 py-4">
+                            <span
+                                class="inline-flex items-center rounded-md bg-green-400/10 px-2 py-1 text-xs font-medium text-green-400 inset-ring inset-ring-green-400/30">{{item.role}}</span>
+                        </td>
+                        <td class="space-x-2 px-6 py-4">
+                            <button
+                                class="px-3 py-1 rounded-lg text-xs font-medium inline-flex items-center rounded-md bg-blue-400/10 text-blue-400 inset-ring inset-ring-blue-400/30 cursor-pointer"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 9a3 3 0 1 0 0 6 3 3 0 1 0 0-6"></path>
+                                    <path
+                                        d="M12 19c7.63 0 9.93-6.62 9.95-6.68.07-.21.07-.43 0-.63-.02-.07-2.32-6.68-9.95-6.68s-9.93 6.61-9.95 6.67c-.07.21-.07.43 0 .63.02.07 2.32 6.68 9.95 6.68Zm0-12c5.35 0 7.42 3.85 7.93 5-.5 1.16-2.58 5-7.93 5s-7.42-3.84-7.93-5c.5-1.16 2.58-5 7.93-5">
+                                    </path>
+                                </svg>
+                            </button>
+                            <button
+                                class="px-3 py-1 rounded-lg text-xs font-medium inline-flex items-center rounded-md bg-yellow-400/10 text-yellow-500 inset-ring inset-ring-yellow-400/20 cursor-pointer"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="m19.41,3c-.78-.78-2.05-.78-2.83,0L4.29,15.29c-.13.13-.22.29-.26.46l-1,4c-.08.34.01.7.26.95.19.19.45.29.71.29.08,0,.16,0,.24-.03l4-1c.18-.04.34-.13.46-.26l12.29-12.29c.78-.78.78-2.05,0-2.83l-1.59-1.59Zm-11.93,15.1l-2.11.53.53-2.11L15,7.41l1.59,1.59-9.1,9.1Zm10.51-10.51l-1.59-1.59,1.59-1.59,1.59,1.58-1.59,1.59Z">
+                                    </path>
+                                </svg></button>
+                            <button
+                                class="px-3 py-1 rounded-lg text-xs font-medium inline-flex items-center rounded-md bg-red-400/10 text-red-400 inset-ring inset-ring-red-400/20 cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M17 6V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H2v2h2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h2V6zM9 4h6v2H9zM6 20V8h12v12z">
+                                    </path>
+                                    <path d="M9 10h2v8H9zM13 10h2v8h-2z"></path>
+                                </svg>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ADD EMPLOYEE MODAL FORM -->
+<dialog id="dialog" aria-labelledby="dialog-title"
+    class="fixed inset-0 size-auto max-h-none max-w-none overflow-y-auto bg-transparent backdrop:bg-transparent">
+    <div
+        class="fixed inset-0 bg-gray-900/50 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in">
+    </div>
+
+    <div tabindex="0"
+        class="flex min-h-full items-end justify-center p-4 text-center focus:outline-none sm:items-center sm:p-0">
+        <div
+            class="relative transform overflow-hidden rounded-lg bg-gray-800 text-left shadow-xl outline -outline-offset-1 outline-white/10 transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-lg data-closed:sm:translate-y-0 data-closed:sm:scale-95">
+            <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <form>
+                    <div class="space-y-12">
+                        <div class="pb-5">
+                            <div class="border-b border-gray-700 pb-4">
+                                <h2 class="text-base/8 font-semibold text-white">Add New Employee</h2>
+                                <p class="mt-1 text-sm/6 text-gray-400">Use a correct email address where you can
+                                    receive
+                                    mail.</p>
+                            </div>
+
+                            <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6">
+                                <div class="sm:col-span-3">
+                                    <label for="fullName" class="block text-sm/6 font-medium text-white">Full
+                                        Name</label>
+                                    <div class="mt-2">
+                                        <input id="fullName" type="text" name="employeeName"
+                                            [(ngModel)]="employeeObj.employeeName" autocomplete="given-name"
+                                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-3">
+                                    <label for="email" class="block text-sm/6 font-medium text-white">Email
+                                        address</label>
+                                    <div class="mt-2">
+                                        <input id="email" type="email" name="emailId" [(ngModel)]="employeeObj.emailId"
+                                            autocomplete="email"
+                                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-3">
+                                    <label for="phoneNumber" class="block text-sm/6 font-medium text-white">Phone
+                                        Number</label>
+                                    <div class="mt-2">
+                                        <input id="phoneNumber" type="tel" name="contactNo"
+                                            [(ngModel)]="employeeObj.contactNo" autocomplete="family-name"
+                                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-3">
+                                    <label for="password" class="block text-sm/6 font-medium text-white">Passowrd
+                                    </label>
+                                    <div class="mt-2">
+                                        <input id="password" type="text" name="password"
+                                            [(ngModel)]="employeeObj.password" autocomplete="given-name"
+                                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-3">
+                                    <label for="gender" class="block text-sm/6 font-medium text-white">Gender</label>
+                                    <div class="mt-2 grid grid-cols-1">
+                                        <select id="gender" name="gender" [(ngModel)]="employeeObj.gender"
+                                            autocomplete="gender-name"
+                                            class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base text-white outline-1 -outline-offset-1 outline-white/10 *:bg-gray-800 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                            <option>Not Disclose</option>
+                                        </select>
+                                        <svg viewBox="0 0 16 16" fill="currentColor" data-slot="icon" aria-hidden="true"
+                                            class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-400 sm:size-4">
+                                            <path
+                                                d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+                                                clip-rule="evenodd" fill-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-3">
+                                    <label for="department"
+                                        class="block text-sm/6 font-medium text-white">Department</label>
+                                    <div class="mt-2 grid grid-cols-1">
+                                        <select id="department" name="deptId" [(ngModel)]="employeeObj.deptId"
+                                            autocomplete="department-name"
+                                            class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base text-white outline-1 -outline-offset-1 outline-white/10 *:bg-gray-800 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6">
+                                            <option *ngFor="let item of departmentList" [value]="item.deptId">
+                                                {{ item.deptName }}
+                                            </option>
+                                        </select>
+                                        <svg viewBox="0 0 16 16" fill="currentColor" data-slot="icon" aria-hidden="true"
+                                            class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-400 sm:size-4">
+                                            <path
+                                                d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+                                                clip-rule="evenodd" fill-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-3">
+                                    <label for="role" class="block text-sm/6 font-medium text-white">Role</label>
+                                    <div class="mt-2 grid grid-cols-1">
+                                        <select id="role" name="role" [(ngModel)]="employeeObj.role"
+                                            autocomplete="role-name"
+                                            class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base text-white outline-1 -outline-offset-1 outline-white/10 *:bg-gray-800 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6">
+                                            <option *ngFor="let role of roleList" [value]="role">
+                                                {{ role }}
+                                            </option>
+                                        </select>
+                                        <svg viewBox="0 0 16 16" fill="currentColor" data-slot="icon" aria-hidden="true"
+                                            class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-400 sm:size-4">
+                                            <path
+                                                d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+                                                clip-rule="evenodd" fill-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="bg-gray-700/25 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                <button type="button" command="close" commandfor="dialog"
+                    class="inline-flex w-full justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-800 sm:ml-3 sm:w-auto cursor-pointer"
+                    (click)="onAddEmployee()">Submit</button>
+                <button type="button" command="close" commandfor="dialog"
+                    class="mt-3 inline-flex w-full justify-center rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-white/20 sm:mt-0 sm:w-auto cursor-pointer">Cancel</button>
+            </div>
+        </div>
+    </div>
+</dialog>

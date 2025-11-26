@@ -1,0 +1,46 @@
+<!-- TOP BAR -->
+<header
+    class="w-full bg-gray-900 border-b border-gray-700 px-4 py-4 flex items-center justify-between shadow-lg h-[72px]">
+    <!-- LEFT — Drawer Button -->
+    <button id="drawerToggle" class="text-gray-300 text-2xl cursor-pointer">
+        <!-- drawer icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="m20,4H4c-1.1,0-2,.9-2,2v12c0,1.1.9,2,2,2h16c1.1,0,2-.9,2-2V6c0-1.1-.9-2-2-2ZM4,6h6v12h-6V6Zm8,12V6h8v12s-8,0-8,0Z">
+            </path>
+            <path d="M6 8H8V10H6z"></path>
+            <path d="M6 12H8V14H6z"></path>
+        </svg>
+    </button>
+
+    <!-- RIGHT SECTION -->
+    <div class="flex items-center space-x-3">
+        <!-- NOTIFICATION ICON -->
+        <button class="relative p-2 rounded-full bg-gray-800 text-gray-400 transition-all cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 
+                    0v-1m6 0H9" />
+            </svg>
+
+            <!-- Red Dot Notification -->
+            <span class="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full shadow-[0_0_6px_#ff3333]"></span>
+        </button>
+
+        <!-- THEME SWITCH -->
+        <button class="p-2 rounded-full bg-gray-800 text-gray-400 transition-all cursor-pointer">
+            <!-- Sun/Moon icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" fill="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                    d="M12 17.01c2.76 0 5.01-2.25 5.01-5.01S14.76 6.99 12 6.99 6.99 9.24 6.99 12s2.25 5.01 5.01 5.01M12 9c1.66 0 3.01 1.35 3.01 3.01s-1.35 3.01-3.01 3.01-3.01-1.35-3.01-3.01S10.34 9 12 9M13 19h-2v3h2v-3M13 2h-2v3h2V2M2 11h3v2H2zM19 11h3v2h-3zM4.22 18.36l.71.71.71.71 1.06-1.06 1.06-1.06-.71-.71-.71-.71-1.06 1.06zM19.78 5.64l-.71-.71-.71-.71-1.06 1.06-1.06 1.06.71.71.71.71 1.06-1.06zM7.76 6.34 6.7 5.28 5.64 4.22l-.71.71-.71.71L5.28 6.7l1.06 1.06.71-.71zM16.24 17.66l1.06 1.06 1.06 1.06.71-.71.71-.71-1.06-1.06-1.06-1.06-.71.71z">
+                </path>
+            </svg>
+        </button>
+
+        <!-- USER PROFILE IMAGE -->
+        <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-indigo-400">
+            <img src="https://i.pravatar.cc/100?img=13" class="w-full h-full object-cover" alt="User">
+        </div>
+    </div>
+</header>
