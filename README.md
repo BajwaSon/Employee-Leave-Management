@@ -1,59 +1,75 @@
-# EmployeeLeaveManagement
+# Employee & Leave Management System  
+**A Simple Angular Learning Project**
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.12.
+[![Angular](https://img.shields.io/badge/Angular-20%2B-red?logo=angular)](https://angular.dev)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Development server
+A lightweight, beginner-friendly Employee and Leave Management web app built with **Angular 20** (standalone components). Perfect for students and developers learning core Angular concepts through a real-world mini HR tool.
 
-To start a local development server, run:
+## Features
+- Role-based login (HR/Admin or Employee)
+- Employee Management (Add, View, Edit, List)
+- Leave Application with date picker
+- Leave Approval Dashboard (HR only)
+- Real-time leave balance display
+- Fully responsive UI with **Angular Material**
+- Clean, well-commented code ideal for learning
+
+## Perfect For Learning
+- Standalone Components & Signals
+- Routing & Route Guards
+- Reactive & Template-driven Forms
+- Services & Dependency Injection
+- HTTP Client (with mock JSON server)
+- Angular Material (Table, Dialog, Form Controls)
+- Interceptors & Authentication flow
+
+## Tech Stack
+- Angular 20 (Standalone API)
+- Angular Material + Flex Layout
+- TypeScript
+- JSON Server (for mock backend)
+- SCSS / Tailwind (optional)
+
+## Quick Start
 
 ```bash
+# Clone the repo
+git clone git@github.com:BajwaSon/Employee-Leave-Management.git
+cd employee-leave-management
+
+# Install dependencies
+npm install
+
+# Start mock backend (optional but recommended)
+npx json-server --watch db.json --port 4208
+
+# Start Angular app
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open [http://localhost:4208](http://localhost:4208)
 
-## Code scaffolding
+### Default Logins
+- **HR/Admin**: `www@gmail.com` / `112233`
+- **Employee**: `john@company.com` / `emp123`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+## Project Structure
+```
+src/
+├── app/
+│   ├── components/     → Reusable UI components
+│   ├── pages/          → Route pages (login, dashboard, etc.)
+│   ├── services/       → Auth, Employee, Leave services
+│   ├── guards/         → AuthGuard
+│   └── models/         → Interfaces (Employee, Leave)
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Contribute
+Feel free to fork, raise issues, or submit pull requests. Contributions are welcome!
 
-```bash
-ng generate --help
-```
+## License
+[MIT License](LICENSE) – free to use, modify, and distribute.
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Made with ❤️ for Angular learners!  
+Happy Coding! 🚀
