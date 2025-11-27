@@ -21,62 +21,8 @@
             </button>
         </div>
         <div class="flex-1 h-full overflow-auto">
-            <table class="min-w-full divide-y divide-gray-700 bg-gray-800 rounded-xl overflow-hidden">
-                <thead class="bg-gray-800 text-gray-300">
-                    <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">ID</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">NAME</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">EMAIL</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">CONTACT</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">DEPARTMENT</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">ROLE</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium uppercase">ACTION</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-700">
-                    <tr class="hover:bg-gray-700/40" *ngFor="let item of employeeList; let i = index">
-                        <td class="px-6 py-4">{{i+1}}</td>
-                        <td class="px-6 py-4">{{item.employeeName}}</td>
-                        <td class="px-6 py-4">{{item.emailId}}</td>
-                        <td class="px-6 py-4">{{item.contactNo}}</td>
-                        <td class="px-6 py-4">{{item.deptName}}</td>
-                        <td class="px-6 py-4">
-                            <span
-                                class="inline-flex items-center rounded-md bg-green-400/10 px-2 py-1 text-xs font-medium text-green-400 inset-ring inset-ring-green-400/30">{{item.role}}</span>
-                        </td>
-                        <td class="space-x-2 px-6 py-4">
-                            <button
-                                class="px-3 py-2 rounded-lg text-xs font-medium inline-flex items-center rounded-md bg-blue-400/10 text-blue-400 inset-ring inset-ring-blue-400/30 cursor-pointer"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path d="M12 9a3 3 0 1 0 0 6 3 3 0 1 0 0-6"></path>
-                                    <path
-                                        d="M12 19c7.63 0 9.93-6.62 9.95-6.68.07-.21.07-.43 0-.63-.02-.07-2.32-6.68-9.95-6.68s-9.93 6.61-9.95 6.67c-.07.21-.07.43 0 .63.02.07 2.32 6.68 9.95 6.68Zm0-12c5.35 0 7.42 3.85 7.93 5-.5 1.16-2.58 5-7.93 5s-7.42-3.84-7.93-5c.5-1.16 2.58-5 7.93-5">
-                                    </path>
-                                </svg>
-                            </button>
-                            <button
-                                class="px-3 py-2 rounded-lg text-xs font-medium inline-flex items-center rounded-md bg-yellow-400/10 text-yellow-500 inset-ring inset-ring-yellow-400/20 cursor-pointer"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="m19.41,3c-.78-.78-2.05-.78-2.83,0L4.29,15.29c-.13.13-.22.29-.26.46l-1,4c-.08.34.01.7.26.95.19.19.45.29.71.29.08,0,.16,0,.24-.03l4-1c.18-.04.34-.13.46-.26l12.29-12.29c.78-.78.78-2.05,0-2.83l-1.59-1.59Zm-11.93,15.1l-2.11.53.53-2.11L15,7.41l1.59,1.59-9.1,9.1Zm10.51-10.51l-1.59-1.59,1.59-1.59,1.59,1.58-1.59,1.59Z">
-                                    </path>
-                                </svg></button>
-                            <button
-                                class="px-3 py-2 rounded-lg text-xs font-medium inline-flex items-center rounded-md bg-red-400/10 text-red-400 inset-ring inset-ring-red-400/20 cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M17 6V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H2v2h2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h2V6zM9 4h6v2H9zM6 20V8h12v12z">
-                                    </path>
-                                    <path d="M9 10h2v8H9zM13 10h2v8h-2z"></path>
-                                </svg>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <app-common-table [tableHeadData]="tableHeadList" [tableKeyList]="tableKeyList"
+                [tableBodyRows]="employeeList"></app-common-table>
         </div>
     </div>
 </div>

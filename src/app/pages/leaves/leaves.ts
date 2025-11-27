@@ -1,11 +1,12 @@
 import { EmployeeService } from './../../services/employee';
 import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CommonTable } from '../../reusable/common-table/common-table';
 
 @Component({
   selector: 'app-leaves',
-  imports: [CommonModule, ReactiveFormsModule, DatePipe],
+  imports: [CommonModule, ReactiveFormsModule, CommonTable],
   templateUrl: './leaves.html',
   styleUrl: './leaves.scss',
 })
@@ -26,6 +27,33 @@ export class Leaves implements OnInit {
 
   leaveList: any[] = [];
   approvalLeaveList: any[] = [];
+  tableHeadList: string[] = [
+    'LEAVE ID',
+    'EMPLOYEE NAME',
+    'LEAVE TYPE',
+    'FROM DATE',
+    'TO DATE',
+    'STATUS',
+    'ACTION',
+  ];
+  reqtableHeadList: string[] = [
+    'LEAVE ID',
+    'EMPLOYEE NAME',
+    'LEAVE TYPE',
+    'FROM DATE',
+    'TO DATE',
+    'DAYS',
+    'ACTION',
+  ];
+  tableKeyList: string[] = ['employeeName', 'leaveType', 'fromDate', 'toDate', 'isApproved', ''];
+  reqtableKeyList: string[] = [
+    'employeeName',
+    'leaveType',
+    'fromDate',
+    'toDate',
+    'noOfDays',
+    'leaveaction',
+  ];
 
   constructor() {
     const loggedData = localStorage.getItem('leaveUser');

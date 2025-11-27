@@ -8,10 +8,11 @@ import {
 } from '../../model/Employee.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CommonTable } from '../../reusable/common-table/common-table';
 
 @Component({
   selector: 'app-employee',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CommonTable],
   templateUrl: './employee.html',
   styleUrl: './employee.scss',
 })
@@ -23,6 +24,9 @@ export class Employee implements OnInit {
   roleList: string[] = [];
 
   employeeObj: AddEmployeeModel = new AddEmployeeModel();
+
+  tableHeadList: string[] = ['ID', 'NAME', 'EMAIL', 'CONTACT', 'DEPARTMENT', 'ROLE', 'ACTION'];
+  tableKeyList: string[] = ['employeeName', 'emailId', 'contactNo', 'deptName', 'role', ''];
 
   ngOnInit(): void {
     this.getAllEmployees();
