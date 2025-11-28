@@ -53,7 +53,8 @@
                 <!-- TABLE ACTIONS -->
                 <div *ngIf="key === ''" class="space-x-2">
                     <button
-                        class="px-3 py-2 rounded-lg text-xs font-medium inline-flex items-center rounded-md bg-blue-400/10 text-blue-400 inset-ring inset-ring-blue-400/30 cursor-pointer"><svg
+                        class="px-3 py-2 rounded-lg text-xs font-medium inline-flex items-center rounded-md bg-blue-400/10 text-blue-400 inset-ring inset-ring-blue-400/30 cursor-pointer"
+                        command="show-modal" commandfor="viewDataDialog" (click)="onClickView(row)"><svg
                             xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
                             viewBox="0 0 24 24">
                             <path d="M12 9a3 3 0 1 0 0 6 3 3 0 1 0 0-6"></path>
@@ -63,7 +64,8 @@
                         </svg>
                     </button>
                     <button
-                        class="px-3 py-2 rounded-lg text-xs font-medium inline-flex items-center rounded-md bg-yellow-400/10 text-yellow-500 inset-ring inset-ring-yellow-400/20 cursor-pointer"><svg
+                        class="px-3 py-2 rounded-lg text-xs font-medium inline-flex items-center rounded-md bg-yellow-400/10 text-yellow-500 inset-ring inset-ring-yellow-400/20 cursor-pointer"
+                        command="show-modal" commandfor="editDataDialog" (click)="onClickEdit(row)"><svg
                             xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
                             viewBox="0 0 24 24">
                             <path
@@ -72,7 +74,8 @@
                         </svg>
                     </button>
                     <button
-                        class="px-3 py-2 rounded-lg text-xs font-medium inline-flex items-center rounded-md bg-red-400/10 text-red-400 inset-ring inset-ring-red-400/20 cursor-pointer">
+                        class="px-3 py-2 rounded-lg text-xs font-medium inline-flex items-center rounded-md bg-red-400/10 text-red-400 inset-ring inset-ring-red-400/20 cursor-pointer"
+                        (onclick)="onClickDelete(row)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
                             viewBox="0 0 24 24">
                             <path
@@ -94,12 +97,14 @@
                 <!-- REQUEST LEAVE ACTIONS -->
                 <div *ngIf="key === 'leaveaction'" class="space-x-2">
                     <button
-                        class="inline-flex items-center rounded-md bg-green-400/10 px-2 py-1 text-xs font-medium text-green-400 inset-ring inset-ring-green-400/30 cursor-pointer">
+                        class="inline-flex items-center rounded-md bg-green-400/10 px-2 py-1 text-xs font-medium text-green-400 inset-ring inset-ring-green-400/30 cursor-pointer"
+                        (click)="onApproveLeave(row.leaveId)">
                         Approved
                     </button>
 
                     <button
-                        class="inline-flex items-center rounded-md bg-red-400/10 px-2 py-1 text-xs font-medium text-red-400 inset-ring inset-ring-red-400/30 cursor-pointer">
+                        class="inline-flex items-center rounded-md bg-red-400/10 px-2 py-1 text-xs font-medium text-red-400 inset-ring inset-ring-red-400/30 cursor-pointer"
+                        (click)="onRejectLeave(row.leaveId)">
                         Rejected
                     </button>
                 </div>

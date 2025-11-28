@@ -72,7 +72,43 @@ export class Employee implements OnInit {
           alert(res.message);
         }
       },
-      error: (error: any) => {},
+      error: (error: any) => {
+        alert('Failed to add employee. Please try again.');
+      },
     });
+  }
+
+  onUpdateValue() {
+    this.employeeService.onEditEmployee(this.employeeObj).subscribe({
+      next: (res: any) => {
+        if (res.result) {
+          alert('Employee updated successfully.');
+          this.getAllEmployees();
+        } else {
+          alert(res.message);
+        }
+      },
+      error: (err: any) => {
+        console.error('API Error:', err);
+        alert('Bad Request – Check your object.');
+      },
+    });
+  }
+
+  onViewData(emp: any) {}
+
+  onEditData(emp: any) {
+    this.employeeService.getEmployeeById(emp.employeeId).subscribe({
+      next: (res: APIResponseModel) => {
+        this.employeeObj = res.data as AddEmployeeModel;
+      },
+    });
+  }
+
+  onDeleteData(data: any) {}
+
+  openAddModal() {
+    const form = document.getElementById('dataInputForm') as HTMLFormElement;
+    form?.reset();
   }
 }

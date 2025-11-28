@@ -1,5 +1,5 @@
-import { CommonModule, JsonPipe } from '@angular/common';
-import { Component, input, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-common-table',
@@ -13,4 +13,34 @@ export class CommonTable {
   @Input() tableBodyRows: any[] = [];
 
   @Input() tableKeyList: string[] = [];
+
+  @Output() viewEvent = new EventEmitter<any>();
+
+  @Output() editEvent = new EventEmitter<any>();
+
+  @Output() deleteEvent = new EventEmitter<any>();
+
+  @Output() approveLeaveEvent = new EventEmitter<number>();
+
+  @Output() rejectLeaveEvent = new EventEmitter<number>();
+
+  onClickView(data: any) {
+    this.viewEvent.emit(data);
+  }
+
+  onClickEdit(data: any) {
+    this.editEvent.emit(data);
+  }
+
+  onClickDelete(data: any) {
+    this.deleteEvent.emit(data);
+  }
+
+  onApproveLeave(id: number) {
+    this.approveLeaveEvent.emit(id);
+  }
+
+  onRejectLeave(id: number) {
+    this.rejectLeaveEvent.emit(id);
+  }
 }

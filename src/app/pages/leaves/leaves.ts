@@ -64,8 +64,8 @@ export class Leaves implements OnInit {
   }
   ngOnInit(): void {
     this.loadLeaves();
-    this.changeTab('my_leaves');
     this.loadLeavesRequest();
+    this.changeTab('my_leaves');
   }
 
   loadLeaves() {
@@ -89,6 +89,7 @@ export class Leaves implements OnInit {
     this.employeeService.getApprovedLeave(id).subscribe({
       next: () => {
         this.loadLeavesRequest();
+        this.loadLeaves();
       },
     });
   }
@@ -97,6 +98,7 @@ export class Leaves implements OnInit {
     this.employeeService.getRejectLeave(id).subscribe({
       next: () => {
         this.loadLeavesRequest();
+        this.loadLeaves();
       },
     });
   }
@@ -104,11 +106,31 @@ export class Leaves implements OnInit {
   onleaveSubmit() {
     const formValue = this.leaveForm.value;
     this.employeeService.onAddLeave(formValue).subscribe({
-      next: () => {
+      next: (res: any) => {
         this.loadLeaves();
+        this.loadLeavesRequest();
+        if (res.result == false) {
+          alert(res.message);
+        } else {
+          alert('Leave applied successfully.');
+        }
+      },
+      error: (error: any) => {
+        alert('Something went wrong. Please try again later.');
       },
     });
   }
+
+  selectedLeave: any; // store leave details
+
+  onViewData(leave: any) {
+    this.selectedLeave = leave;
+    console.log('Leave details:', this.selectedLeave);
+  }
+
+  onEditData(data: any) {}
+
+  onDeleteData(data: any) {}
 
   changeTab(tabName: string) {
     const tabs = document.querySelectorAll('#tabs button') as NodeListOf<HTMLButtonElement>;
@@ -143,5 +165,13 @@ export class Leaves implements OnInit {
         content.classList.remove('animate-fade');
       }
     });
+
+    if (tabName === 'leave_request') {
+      this.loadLeavesRequest();
+    }
+
+    if (tabName === 'my_leaves') {
+      this.loadLeaves();
+    }
   }
 }

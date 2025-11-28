@@ -38,6 +38,13 @@ export class EmployeeService {
     );
   }
 
+  onEditEmployee(obj: any) {
+    return this.http.put(
+      'https://freeapi.miniprojectideas.com/api/EmployeeLeave/UpdateEmployee',
+      obj
+    );
+  }
+
   onAddLeave(obj: any) {
     return this.http.post('https://freeapi.miniprojectideas.com/api/EmployeeLeave/AddLeave', obj);
   }
@@ -63,6 +70,12 @@ export class EmployeeService {
   getRejectLeave(leaveId: number): Observable<APIResponseModel> {
     return this.http.get<APIResponseModel>(
       'https://freeapi.miniprojectideas.com/api/EmployeeLeave/RejectLeave?id=' + leaveId
+    );
+  }
+
+  getEmployeeById(empId: number): Observable<APIResponseModel> {
+    return this.http.get<APIResponseModel>(
+      'https://freeapi.miniprojectideas.com/api/EmployeeLeave/GetEmployeeById?id=' + empId
     );
   }
 }
